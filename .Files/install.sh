@@ -39,8 +39,8 @@ install_torplus() {
     cat > /usr/lib/lua/luci/controller/torplus.lua <<'EoL'
 module("luci.controller.torplus", package.seeall)
 function index()
-    entry({"admin", "services", "torplus"}, template("TorPlus/main"), "TorPlus", 41).dependent = true
-    entry({"admin", "services", "torplus_api"}, call("api_handler")).leaf = true
+    entry({"admin", "peditxos", "torplus"}, template("TorPlus/main"), "Tor Plus", 41).dependent = true
+    entry({"admin", "peditxos", "torplus_api"}, call("api_handler")).leaf = true
 end
 function api_handler()
     local action = luci.http.formvalue("action")
