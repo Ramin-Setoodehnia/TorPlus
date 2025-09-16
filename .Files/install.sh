@@ -39,7 +39,7 @@ install_torplus() {
     cat > /usr/lib/lua/luci/controller/torplus.lua <<'EoL'
 module("luci.controller.torplus", package.seeall)
 function index()
-    entry({"admin", "services", "torplus"}, template("TorPlus/main"), "TORPlus", 41).dependent = true
+    entry({"admin", "services", "torplus"}, template("TorPlus/main"), "TorPlus", 41).dependent = true
     entry({"admin", "services", "torplus_api"}, call("api_handler")).leaf = true
 end
 function api_handler()
@@ -463,7 +463,7 @@ EoL
     # Configure Passwall or Passwall2 with detailed settings from the parent script
     if uci show passwall2 >/dev/null 2>&1; then
         uci set passwall2.TorNode=nodes
-        uci set passwall2.TorNode.remarks='Tor'
+        uci set passwall2.TorNode.remarks='TorPlus'
         uci set passwall2.TorNode.type='Xray'
         uci set passwall2.TorNode.protocol='socks'
         uci set passwall2.TorNode.server='127.0.0.1'
@@ -478,7 +478,7 @@ EoL
         echo "Passwall2 configured with detailed settings."
     elif uci show passwall >/dev/null 2>&1; then
         uci set passwall.TorNode=nodes
-        uci set passwall.TorNode.remarks='Tor'
+        uci set passwall.TorNode.remarks='TorPlus'
         uci set passwall.TorNode.type='Xray'
         uci set passwall.TorNode.protocol='socks'
         uci set passwall.TorNode.server='127.0.0.1'
@@ -507,13 +507,6 @@ echo "Operation completed successfully."
 # Use cat heredoc for robust multi-line output
 cat << "EOM"
 
-  ______      _____   _      _    _     _____       
- (_____ \    (____ \ (_)_   \ \  / /   / ___ \     
-  _____) )___ _   \ \ _| |_  \ \/ /   | |   | | ___ 
- |  ____/ _  ) |   | | |  _)  )  (    | |   | |/___)
- | |   ( (/ /| |__/ /| | |__ / /\ \   | |___| |___ |
- |_|    \____)_____/ |_|\___)_/  \_\   \_____/(___/ 
-                                                  
-                                       TORPlus by PeDitX
+Installation was Successful
 
 EOM
