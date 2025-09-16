@@ -99,5 +99,4 @@ curl --socks5-hostname 127.0.0.1:9050 https://check.torproject.org
 
 🧾 License
 
-Licensed under PeDitX License
-📢 Telegram Channel: https://t.me/peditx
+Licensed under Ramin-Setoodehnia License
